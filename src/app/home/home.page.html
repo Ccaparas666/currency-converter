@@ -1,20 +1,45 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Currency Converter
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>From:</ion-label>
+      <ion-select [(ngModel)]="fromCurrency">
+        <ion-select-option value="USD">USD</ion-select-option>
+        <ion-select-option value="EUR">EUR</ion-select-option>
+        <ion-select-option value="GBP">GBP</ion-select-option>
+        <ion-select-option value="JPY">JPY</ion-select-option>
+        <ion-select-option value="AUD">AUD</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-item>
+      <ion-label>To:</ion-label>
+      <ion-select [(ngModel)]="toCurrency">
+        <ion-select-option value="USD">USD</ion-select-option>
+        <ion-select-option value="EUR">EUR</ion-select-option>
+        <ion-select-option value="GBP">GBP</ion-select-option>
+        <ion-select-option value="JPY">JPY</ion-select-option>
+        <ion-select-option value="AUD">AUD</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Amount:</ion-label>
+      <ion-input [(ngModel)]="amount" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Converted Amount:</ion-label>
+      <ion-input [(ngModel)]="convertedAmount" readonly></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" (click)="convert()">Convert</ion-button>
+  </ion-list>
 </ion-content>
