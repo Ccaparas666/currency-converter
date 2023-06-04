@@ -11,22 +11,16 @@
     <ion-item>
       <ion-label>From:</ion-label>
       <ion-select [(ngModel)]="fromCurrency">
-        <ion-select-option value="USD">USD</ion-select-option>
-        <ion-select-option value="EUR">EUR</ion-select-option>
-        <ion-select-option value="GBP">GBP</ion-select-option>
-        <ion-select-option value="JPY">JPY</ion-select-option>
-        <ion-select-option value="AUD">AUD</ion-select-option>
+
+        <ion-select-option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label>To:</ion-label>
       <ion-select [(ngModel)]="toCurrency">
-        <ion-select-option value="USD">USD</ion-select-option>
-        <ion-select-option value="EUR">EUR</ion-select-option>
-        <ion-select-option value="GBP">GBP</ion-select-option>
-        <ion-select-option value="JPY">JPY</ion-select-option>
-        <ion-select-option value="AUD">AUD</ion-select-option>
+
+        <ion-select-option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</ion-select-option>
       </ion-select>
     </ion-item>
 
@@ -40,6 +34,12 @@
       <ion-input [(ngModel)]="convertedAmount" readonly></ion-input>
     </ion-item>
 
+
+    <ion-item>
+      <ion-label>New Currency:</ion-label>
+      <ion-input [(ngModel)]="newCurrency"></ion-input>
+    </ion-item>
     <ion-button expand="full" (click)="convert()">Convert</ion-button>
+    <ion-button expand="full" (click)="addCurrency()">Add Currency</ion-button>
   </ion-list>
 </ion-content>
