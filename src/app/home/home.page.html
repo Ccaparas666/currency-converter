@@ -37,7 +37,7 @@
 
     <ion-item>
       <ion-label>New Currency:</ion-label>
-      <ion-input [(ngModel)]="newCurrency"></ion-input>
+      <ion-input [(ngModel)]="newCurrency" (ionChange)="newCurrency = newCurrency.toUpperCase()"></ion-input>
     </ion-item>
     <ion-button expand="full" (click)="convert()">Convert</ion-button>
     <ion-button expand="full" (click)="addCurrency()">Add Currency</ion-button>
